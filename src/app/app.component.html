@@ -1,0 +1,66 @@
+<div class="container-fluid">
+  <h3>SpaceX Lanuch Programs</h3>
+  <div class="row">
+    <div class="col-md-3 col-xs-12 col-lg-3 col-sm-12">
+      <div class="card filter">
+        <div class="card-body">
+          <h5 class="card-title">Filter</h5>
+          <p class="filter_align">Launch Year</p>
+            <div class="row">
+              <div class="col-6 button" *ngFor="let item of uniqueYear;">
+                <button type="button" class="btn btn-sm bg" (click)="filterSapceData(item.launch_year)">{{item.launch_year}}</button>
+              </div>
+            </div>
+          <p class="filter_align">Successful Launch</p>
+          <div class="row">
+            <div class="col-6">
+              <button class="btn btn-sm bg" (click)="filterSapceData('Launchtrue')">True</button>
+            </div>
+            <div class="col-6">
+              <button class="btn btn-sm bg" (click)="filterSapceData('Launchfalse')">False</button>
+            </div>
+          </div>
+          <p class="filter_align">Successful Landing</p>
+          <div class="row">
+            <div class="col-6">
+              <button class="btn btn-sm bg" (click)="filterSapceData('Landingtrue')">True</button>
+            </div>
+            <div class="col-6">
+              <button class="btn btn-sm bg" (click)="filterSapceData('Landingfalse')">False</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="col-md-9 col-xs-12 col-lg-9 col-sm-12">
+        <div class="row">
+          <div class="col-md-3 col-lg-3 col-xs-6 col-sm-12" *ngFor="let item of displayData;">
+            <!-- <div> -->
+              <div class="card">
+                <img src="{{item.mission_patch}}" class="card-img-top bg" alt="">
+                <div class="card-body">
+                  <h5 class="card-title">{{item.mission_name}} #{{item.flight_number}}</h5>
+                  <strong>Mission Ids:</strong>
+                  <ul *ngFor="let id of item.mission_id">
+                    <li>{{id}}</li>
+                  </ul>
+                  <p>
+                    <strong>Launch Year: <span>{{item.launch_year}}</span></strong>
+                  </p>
+                  <p>
+                    <strong>Successful Launching: <span>{{item.launch_success}}</span></strong>
+                  </p>
+                  <p>
+                    <strong>Successful Landing: <span>{{item.landing_intent}}</span></strong>
+                  </p>
+                </div>
+              </div>
+            <!-- </div> -->
+          </div>
+        </div>
+        <div class="footer">
+          <p> <strong>Developed by</strong> Gnanasekaran.R</p>
+        </div>
+      </div>
+  </div>
+</div>
